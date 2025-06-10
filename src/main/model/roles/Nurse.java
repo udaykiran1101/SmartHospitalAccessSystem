@@ -1,19 +1,26 @@
 package main.model.roles;
 
 import main.model.room.Room;
-import main.model.room.RoomAccessRule;
 
 public class Nurse extends Person {
+    private String shift; // Day, Night, Evening
 
     public Nurse(String id, String name) {
-        super(id, name);
+        super(id, name, "Nurse", 4);
+        this.shift = "Day";
+    }
+
+    public Nurse(String id, String name, String shift) {
+        super(id, name, "Nurse", 4);
+        this.shift = shift;
     }
 
     @Override
     public boolean requestAccess(Room room) {
-        // Check access rules for Nurse role
-        RoomAccessRule accessRule = room.getAccessRule();
-        return accessRule.isAccessAllowed(this, room);
+        return room.isAccessAllowed(this.role, this.clearanceLevel);
     }
+
+    public String getShift() { return shift; }
+    public void setShift(String shift) { this.shift = shift; }
 }
 
