@@ -1,7 +1,7 @@
 package main.model.roles;
 
 import main.model.room.Room;
-import main.model.vitals.VitalSigns;
+import main.model.monitor.VitalMonitor;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
