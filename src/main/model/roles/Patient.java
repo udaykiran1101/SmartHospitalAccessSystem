@@ -5,6 +5,7 @@ import main.model.monitor.VitalMonitor;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import main.model.monitor.VitalSigns;
 
 public class Patient extends Person {
     private String medicalRecordId;
@@ -26,7 +27,7 @@ public class Patient extends Person {
     public boolean requestAccess(Room room) {
         // Patients can only access their assigned room or general areas
         return room.getRoomId().equals(currentRoomId) || 
-               room.getRoomType().equals("General Ward");
+               room.getRoomType().equals("Ward");
     }
 
     public void updateVitals(VitalSigns vitals) {
