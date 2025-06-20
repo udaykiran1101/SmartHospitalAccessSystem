@@ -9,8 +9,8 @@ import java.util.*;
 
 public class AccessLogger {
 
-    private static final String LOG_FILE = "main/logs/access_log.txt";
-    private static final String VITALS_LOG_FILE = "main/logs/vitals_log.txt";
+    private static final String LOG_FILE = "logs/access_log.txt";
+    private static final String VITALS_LOG_FILE = "logs/vitals_log.txt";
 
     public static void logAccess(String personId, String roomId, boolean granted) {
         String timestamp = LocalDateTime.now().toString();

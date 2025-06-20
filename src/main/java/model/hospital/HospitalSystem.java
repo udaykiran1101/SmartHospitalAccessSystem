@@ -34,9 +34,9 @@ public class HospitalSystem {
                 
                 case 6 -> {
                 System.out.println("Access Log:");
-                AccessLogger.printDecryptedLog("main/logs/access_log.txt");
+                AccessLogger.printDecryptedLog("logs/access_log.txt");
                 System.out.println("\nVitals Log:");
-                AccessLogger.printDecryptedLog("main/logs/vitals_log.txt");
+                AccessLogger.printDecryptedLog("logs/vitals_log.txt");
                 }
 
                 case 7 -> System.exit(0);
