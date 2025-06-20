@@ -5,6 +5,7 @@ import main.model.monitor.VitalSigns;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.*;
 
 public class AccessLogger {
 
@@ -28,12 +29,23 @@ public class AccessLogger {
         writeToFile(VITALS_LOG_FILE, entry);
     }
 
-    private static void writeToFile(String filename, String content) {
-        try (FileWriter fw = new FileWriter(filename, true)) {
-            fw.write(content);
-        } catch (IOException e) {
-            System.err.println("Logging failed: " + e.getMessage());
-        }
+   
+  private static void writeToFile(String filename, String content) {
+    try (FileWriter fw = new FileWriter(filename, true)) {
+        fw.write(Encryptor.encrypt(content) + "\n");
+    } catch (IOException e) {
+        System.err.println("Logging failed: " + e.getMessage());
     }
+}
 
+  public static void printDecryptedLog(String filename) {
+    try (Scanner scanner = new Scanner(new java.io.File(filename))) {
+        while (scanner.hasNextLine()) {
+            String encryptedLine = scanner.nextLine();
+            System.out.println(Encryptor.decrypt(encryptedLine));
+        }
+    } catch (Exception e) {
+        System.out.println("❌ Failed to read or decrypt log: " + e.getMessage());
+    }
+}
 }

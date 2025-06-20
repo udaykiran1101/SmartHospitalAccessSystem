@@ -1,2 +1,0 @@
-[2025-06-19T12:02:54.141502471] Person P001 attempted access to Room ICU001: GRANTED
-[2025-06-19T12:02:54.141704854] Person P001 attempted access to Room ICU001: GRANTED
